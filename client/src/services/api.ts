@@ -14,10 +14,24 @@ import {
 
 
 
-const LIVE_API_BASE = 'https://server-1-b8mh.onrender.com/api';
-const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL !== '/api')
-  ? import.meta.env.VITE_API_URL
-  : LIVE_API_BASE;
+const getApiBase = (): string => {
+  const envUrl = (import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '').trim();
+
+  if (envUrl === '/api') {
+    return '/api';
+  }
+
+  let base = envUrl || 'https://server-2-f0m8.onrender.com/api';
+  base = base.replace(/\/+$/, '');
+
+  if (!base.endsWith('/api')) {
+    base = `${base}/api`;
+  }
+
+  return base;
+};
+
+const API_BASE = getApiBase();
 
 export const api = {
   // Authentication
