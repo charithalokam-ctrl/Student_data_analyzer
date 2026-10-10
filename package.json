@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "AI-Powered Student Success Analytics & Proof-of-Build Platform",
   "scripts": {
+    "build": "npm --prefix client run build && node -e \"const fs=require('fs'); fs.cpSync('client/dist', 'dist', {recursive: true});\"",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && node src/server.js",
     "start:server": "cd server && node src/server.js",
     "start:client": "cd client && npm run dev",
-    "build:client": "cd client && npm run build",
     "test:api": "powershell -Command Invoke-RestMethod -Uri http://localhost:5000/api/health"
   },
   "keywords": [

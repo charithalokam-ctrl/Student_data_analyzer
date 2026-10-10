@@ -14,7 +14,10 @@ import {
 
 
 
-const API_BASE = import.meta.env.VITE_API_URL || 'https://server-1-b8mh.onrender.com/api';
+const LIVE_API_BASE = 'https://server-1-b8mh.onrender.com/api';
+const API_BASE = (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL !== '/api')
+  ? import.meta.env.VITE_API_URL
+  : LIVE_API_BASE;
 
 export const api = {
   // Authentication
