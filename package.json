@@ -1,0 +1,21 @@
+{
+  "name": "student-success-analytics-platform",
+  "version": "1.0.0",
+  "description": "AI-Powered Student Success Analytics & Proof-of-Build Platform",
+  "scripts": {
+    "start:server": "cd server && node src/server.js",
+    "start:client": "cd client && npm run dev",
+    "build:client": "cd client && npm run build",
+    "test:api": "powershell -Command Invoke-RestMethod -Uri http://localhost:5000/api/health"
+  },
+  "keywords": [
+    "student-success",
+    "analytics",
+    "streak",
+    "proof-of-build",
+    "ai-voice-interview",
+    "skill-dna"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
